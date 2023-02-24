@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
-        <title>cdp_gh_utils.actions - cdp-gh-utils 0.1.dev1+g18f6f8b documentation</title>
+        <title>cdp_gh_utils.actions - cdp-gh-utils 0.1.dev1+g606e099 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">cdp-gh-utils 0.1.dev1+g18f6f8b documentation</div></a>
+      <a href="../../index.html"><div class="brand">cdp-gh-utils 0.1.dev1+g606e099 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+g18f6f8b documentation</span>
+  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+g606e099 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -293,12 +293,14 @@
                     <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="n">iter_end_str</span><span class="p">,</span>
                 <span class="p">},</span>
             <span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Triggered workflow.&quot;</span><span class="p">)</span>
 
             <span class="c1"># Find the new run</span>
             <span class="n">found_run</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">20</span>
             <span class="n">current_iter</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">while</span> <span class="ow">not</span> <span class="n">found_run</span> <span class="ow">and</span> <span class="n">current_iter</span> <span class="o">&lt;</span> <span class="n">max_iter</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Checking for queued workflow run.&quot;</span><span class="p">)</span>
                 <span class="n">queued_runs</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">list_workflow_runs</span><span class="p">(</span>
                     <span class="n">owner</span><span class="o">=</span><span class="n">owner</span><span class="p">,</span>
                     <span class="n">repo</span><span class="o">=</span><span class="n">repo</span><span class="p">,</span>
@@ -308,17 +310,23 @@
                     <span class="n">status</span><span class="o">=</span><span class="s2">&quot;queued&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">queued_runs</span><span class="p">[</span><span class="s2">&quot;workflow_runs&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Found the queued workflow run.&quot;</span><span class="p">)</span>
                     <span class="n">found_run</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="k">break</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">current_iter</span> <span class="o">+=</span> <span class="mi">1</span>
                     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
+            <span class="c1"># Handle not found</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">found_run</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Could not find queued run.&quot;</span><span class="p">)</span>
+
             <span class="c1"># Find the workflow to monitor</span>
             <span class="n">watch_workflow_id</span> <span class="o">=</span> <span class="n">queued_runs</span><span class="p">[</span><span class="s2">&quot;workflow_runs&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
 
             <span class="c1"># Keep checking status</span>
             <span class="n">workflow_complete</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Starting workflow watch.&quot;</span><span class="p">)</span>
             <span class="k">while</span> <span class="ow">not</span> <span class="n">workflow_complete</span><span class="p">:</span>
                 <span class="n">workflow_details</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">get_workflow_run</span><span class="p">(</span>
                     <span class="n">owner</span><span class="o">=</span><span class="n">owner</span><span class="p">,</span>
@@ -329,6 +337,7 @@
                 <span class="c1"># Check status</span>
                 <span class="k">if</span> <span class="n">workflow_details</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;completed&quot;</span><span class="p">:</span>
                     <span class="n">workflow_complete</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Workflow complete.&quot;</span><span class="p">)</span>
                     <span class="k">break</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
@@ -352,6 +361,7 @@
                     <span class="s2">&quot;workflow_link&quot;</span><span class="p">:</span> <span class="n">workflow_link</span><span class="p">,</span>
                     <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">workflow_details</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">],</span>
                     <span class="s2">&quot;conclusion&quot;</span><span class="p">:</span> <span class="n">workflow_details</span><span class="p">[</span><span class="s2">&quot;conclusion&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
                 <span class="p">}</span>
             <span class="p">)</span>
 
@@ -371,6 +381,7 @@
                     <span class="s2">&quot;workflow_link&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
                     <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;failed_start&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;conclusion&quot;</span><span class="p">:</span> <span class="s2">&quot;failed_start&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
                 <span class="p">}</span>
             <span class="p">)</span>
 
