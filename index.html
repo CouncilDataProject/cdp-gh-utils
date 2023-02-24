@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="installation.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
-        <title>cdp-gh-utils 0.1.dev1+gfbd37b8 documentation</title>
+        <title>cdp-gh-utils 0.1.dev1+g4d22b32 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">cdp-gh-utils 0.1.dev1+gfbd37b8 documentation</div></a>
+      <a href="#"><div class="brand">cdp-gh-utils 0.1.dev1+g4d22b32 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
   
   
-  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+gfbd37b8 documentation</span>
+  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+g4d22b32 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -217,34 +217,14 @@
 <p><strong>Stable Release:</strong> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">cdp-gh-utils</span></code><span class="raw-html-m2r"><br></span>
 <strong>Development Head:</strong> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">git+https://github.com/CouncilDataProject/cdp-gh-utils.git</span></code></p>
 </section>
-<section id="running-github-actions-from-command-line">
-<h2>Running GitHub Actions from Command Line<a class="headerlink" href="#running-github-actions-from-command-line" title="Permalink to this heading">#</a></h2>
-<p>⚠️ ⚠️ Note: make sure you have logged in to the <a class="reference external" href="https://cli.github.com/">GitHub CLI</a>
-with <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">auth</span> <span class="pre">login</span></code> prior to running any of these commands. ⚠️ ⚠️</p>
-<section id="cli">
-<h3>CLI<a class="headerlink" href="#cli" title="Permalink to this heading">#</a></h3>
-<p>Run the <code class="docutils literal notranslate"><span class="pre">ci.yml</span></code> workflow from the <code class="docutils literal notranslate"><span class="pre">CouncilDataProject/cdp-gh-utils</span></code> repository.
-(You can only run actions in repositories you have access to.)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>run-gh-action<span class="w"> </span>CouncilDataProject/cdp-gh-utils<span class="w"> </span>ci.yml
+<section id="backfilling-instances">
+<h2>Backfilling Instances<a class="headerlink" href="#backfilling-instances" title="Permalink to this heading">#</a></h2>
+<p>⚠️ ⚠️ Note: prior to using this library, be sure to create a
+<a class="reference external" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">GitHub Personal Access Token</a>
+and store it to a <code class="docutils literal notranslate"><span class="pre">GITHUB_TOKEN</span></code> environment variable (<code class="docutils literal notranslate"><span class="pre">.env</span></code> file also works). ⚠️ ⚠️</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>backfill-cdp-instance<span class="w"> </span>evamaxfield<span class="w"> </span>cdp-dev<span class="w"> </span><span class="m">2023</span>-02-01<span class="w"> </span><span class="m">2023</span>-03-01
 </pre></div>
 </div>
-<p>With parameters:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>run-gh-action<span class="w"> </span>CouncilDataProject/cdp-gh-utils<span class="w"> </span>ci.yml<span class="w"> </span>-k<span class="w"> </span><span class="nv">hello</span><span class="o">=</span>world<span class="w"> </span><span class="nv">test</span><span class="o">=</span>value
-</pre></div>
-</div>
-</section>
-<section id="python">
-<h3>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cdp_gh_utils</span> <span class="kn">import</span> <span class="n">actions</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">repo</span><span class="o">=</span><span class="s2">&quot;CouncilDataProject/cdp-gh-utils&quot;</span><span class="p">,</span>
-    <span class="n">workflow_file_name</span><span class="o">=</span><span class="s2">&quot;ci.yml&quot;</span><span class="p">,</span>
-    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span><span class="p">},</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</section>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>

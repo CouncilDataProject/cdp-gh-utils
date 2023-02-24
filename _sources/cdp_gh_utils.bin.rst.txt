@@ -4,10 +4,10 @@ cdp\_gh\_utils.bin package
 Submodules
 ----------
 
-cdp\_gh\_utils.bin.run\_gh\_action module
------------------------------------------
+cdp\_gh\_utils.bin.backfill\_cdp\_instance module
+-------------------------------------------------
 
-.. automodule:: cdp_gh_utils.bin.run_gh_action
+.. automodule:: cdp_gh_utils.bin.backfill_cdp_instance
    :members:
    :undoc-members:
    :show-inheritance:

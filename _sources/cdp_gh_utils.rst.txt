@@ -20,14 +20,6 @@ cdp\_gh\_utils.actions module
    :undoc-members:
    :show-inheritance:
 
-cdp\_gh\_utils.argparse\_utils module
--------------------------------------
-
-.. automodule:: cdp_gh_utils.argparse_utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 

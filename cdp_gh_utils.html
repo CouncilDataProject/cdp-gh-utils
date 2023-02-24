@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="cdp_gh_utils.bin package" href="cdp_gh_utils.bin.html" /><link rel="prev" title="cdp_gh_utils" href="modules.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
-        <title>cdp_gh_utils package - cdp-gh-utils 0.1.dev1+gfbd37b8 documentation</title>
+        <title>cdp_gh_utils package - cdp-gh-utils 0.1.dev1+g4d22b32 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">cdp-gh-utils 0.1.dev1+gfbd37b8 documentation</div></a>
+      <a href="index.html"><div class="brand">cdp-gh-utils 0.1.dev1+g4d22b32 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+gfbd37b8 documentation</span>
+  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+g4d22b32 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -209,9 +209,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cdp_gh_utils.bin.html">cdp_gh_utils.bin package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cdp_gh_utils.bin.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdp_gh_utils.bin.html#module-cdp_gh_utils.bin.run_gh_action">cdp_gh_utils.bin.run_gh_action module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cdp_gh_utils.bin.html#cdp_gh_utils.bin.run_gh_action.Args"><code class="docutils literal notranslate"><span class="pre">Args</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="cdp_gh_utils.bin.html#cdp_gh_utils.bin.run_gh_action.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdp_gh_utils.bin.html#module-cdp_gh_utils.bin.backfill_cdp_instance">cdp_gh_utils.bin.backfill_cdp_instance module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cdp_gh_utils.bin.html#cdp_gh_utils.bin.backfill_cdp_instance.Args"><code class="docutils literal notranslate"><span class="pre">Args</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdp_gh_utils.bin.html#cdp_gh_utils.bin.backfill_cdp_instance.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cdp_gh_utils.bin.html#module-cdp_gh_utils.bin">Module contents</a></li>
@@ -225,44 +225,10 @@
 </section>
 <section id="module-cdp_gh_utils.actions">
 <span id="cdp-gh-utils-actions-module"></span><h2>cdp_gh_utils.actions module<a class="headerlink" href="#module-cdp_gh_utils.actions" title="Permalink to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="cdp_gh_utils.actions.RunResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cdp_gh_utils.actions.</span></span><span class="sig-name descname"><span class="pre">RunResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str'</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str'</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cdp_gh_utils/actions.html#RunResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdp_gh_utils.actions.RunResult" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cdp_gh_utils.actions.RunResult.command">
-<span class="sig-name descname"><span class="pre">command</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#cdp_gh_utils.actions.RunResult.command" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cdp_gh_utils.actions.RunResult.state">
-<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#cdp_gh_utils.actions.RunResult.state" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
-<dt class="sig sig-object py" id="cdp_gh_utils.actions.run">
-<span class="sig-prename descclassname"><span class="pre">cdp_gh_utils.actions.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workflow_file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">watch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dry_run</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#cdp_gh_utils.actions.RunResult" title="cdp_gh_utils.actions.RunResult"><span class="pre">RunResult</span></a></span></span><a class="reference internal" href="_modules/cdp_gh_utils/actions.html#run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdp_gh_utils.actions.run" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="cdp_gh_utils.actions.backfill_instance">
+<span class="sig-prename descclassname"><span class="pre">cdp_gh_utils.actions.</span></span><span class="sig-name descname"><span class="pre">backfill_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter_days</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">timedelta</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap_days</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">timedelta</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_errors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workflow_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'event-gather-pipeline.yml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'main'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/cdp_gh_utils/actions.html#backfill_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdp_gh_utils.actions.backfill_instance" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
-
-</section>
-<section id="module-cdp_gh_utils.argparse_utils">
-<span id="cdp-gh-utils-argparse-utils-module"></span><h2>cdp_gh_utils.argparse_utils module<a class="headerlink" href="#module-cdp_gh_utils.argparse_utils" title="Permalink to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="cdp_gh_utils.argparse_utils.ParseKwargs">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cdp_gh_utils.argparse_utils.</span></span><span class="sig-name descname"><span class="pre">ParseKwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option_strings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">const</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">help</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metavar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cdp_gh_utils/argparse_utils.html#ParseKwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cdp_gh_utils.argparse_utils.ParseKwargs" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></p>
-<p>Parse keyword arguments from CLI to dictionary.</p>
-<p>Credit:
-<a class="reference external" href="https://sumit-ghosh.com/articles/parsing-dictionary-key-value-pairs-kwargs-argparse-python/">https://sumit-ghosh.com/articles/parsing-dictionary-key-value-pairs-kwargs-argparse-python/</a></p>
-<p class="rubric">Examples</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">parser</span> <span class="pre">=</span> <span class="pre">argparse.ArgumentParser()</span>
-<span class="pre">parser.add_argument('-k',</span> <span class="pre">'--kwargs',</span> <span class="pre">nargs='*',</span> <span class="pre">action=ParseKwargs)</span>
-<span class="pre">args</span> <span class="pre">=</span> <span class="pre">parser.parse_args()</span>
-<span class="pre">`</span></code></p>
-</dd></dl>
 
 </section>
 <section id="module-cdp_gh_utils">
@@ -330,16 +296,7 @@
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-cdp_gh_utils.actions">cdp_gh_utils.actions module</a><ul>
-<li><a class="reference internal" href="#cdp_gh_utils.actions.RunResult"><code class="docutils literal notranslate"><span class="pre">RunResult</span></code></a><ul>
-<li><a class="reference internal" href="#cdp_gh_utils.actions.RunResult.command"><code class="docutils literal notranslate"><span class="pre">RunResult.command</span></code></a></li>
-<li><a class="reference internal" href="#cdp_gh_utils.actions.RunResult.state"><code class="docutils literal notranslate"><span class="pre">RunResult.state</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#cdp_gh_utils.actions.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-cdp_gh_utils.argparse_utils">cdp_gh_utils.argparse_utils module</a><ul>
-<li><a class="reference internal" href="#cdp_gh_utils.argparse_utils.ParseKwargs"><code class="docutils literal notranslate"><span class="pre">ParseKwargs</span></code></a></li>
+<li><a class="reference internal" href="#cdp_gh_utils.actions.backfill_instance"><code class="docutils literal notranslate"><span class="pre">backfill_instance()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-cdp_gh_utils">Module contents</a></li>
