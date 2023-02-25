@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="installation.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
-        <title>cdp-gh-utils 0.1.dev1+g7de8078 documentation</title>
+        <title>cdp-gh-utils 0.1.dev1+gbf474ba documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">cdp-gh-utils 0.1.dev1+g7de8078 documentation</div></a>
+      <a href="#"><div class="brand">cdp-gh-utils 0.1.dev1+gbf474ba documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
   
   
-  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+g7de8078 documentation</span>
+  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+gbf474ba documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -222,6 +222,35 @@
 <p>⚠️ ⚠️ Note: prior to using this library, be sure to create a
 <a class="reference external" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">GitHub Personal Access Token</a>
 and store it to a <code class="docutils literal notranslate"><span class="pre">GITHUB_TOKEN</span></code> environment variable (<code class="docutils literal notranslate"><span class="pre">.env</span></code> file also works). ⚠️ ⚠️</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>❯ backfill-cdp-instance -h
+
+usage: backfill-cdp-instance [-h] [--outfile OUTFILE] [--iter_days ITER_DAYS] [--overlap_days OVERLAP_DAYS] [--token TOKEN] [--workflow_filename WORKFLOW_FILENAME] [--ref REF]
+                             [--ignore_errors] [--debug]
+                             owner repo start_datetime end_datetime
+
+Iteratively triggers the Event Gather Pipeline workflow via GitHub Actions to backfill a CDP instance. Only one workflow run will ever happen at a single time.
+
+positional arguments:
+  owner                 The organization which hosts the instance. i.e. &#39;CouncilDataProject&#39;
+  repo                  The organization which hosts the instance. i.e. &#39;seattle&#39;
+  start_datetime        The start datetime of the backfill in ISO format. i.e. &#39;2022-01-01&#39;
+  end_datetime          The end datetime of the backfill in ISO format. i.e. &#39;2023-01-01&#39;
+
+options:
+  -h, --help            show this help message and exit
+  --outfile OUTFILE     Path to the where the backfill results should be stored to CSV.
+  --iter_days ITER_DAYS
+                        The number of days to backfill during each workflow run.
+  --overlap_days OVERLAP_DAYS
+                        The number of days to overlap each workflow run by.
+  --token TOKEN         GitHub Personal Access Token to use for initializing workflow runs.
+  --workflow_filename WORKFLOW_FILENAME
+                        The name of the workflow file which acts as the event gather pipeline action definition.
+  --ref REF             The branch or git ref name to trigger the workflow on.
+  --ignore_errors       Try to backfill all batches regardless of errors.
+  --debug               Run with debug logging.
+</pre></div>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>backfill-cdp-instance<span class="w"> </span>evamaxfield<span class="w"> </span>cdp-dev<span class="w"> </span><span class="m">2023</span>-02-01<span class="w"> </span><span class="m">2023</span>-03-01
 </pre></div>
 </div>
