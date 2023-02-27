@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
-        <title>cdp_gh_utils.bin.backfill_cdp_instance - cdp-gh-utils 0.1.dev1+gbf474ba documentation</title>
+        <title>cdp_gh_utils.bin.backfill_cdp_instance - cdp-gh-utils 0.1.dev1+g96bf8fc documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">cdp-gh-utils 0.1.dev1+gbf474ba documentation</div></a>
+      <a href="../../../index.html"><div class="brand">cdp-gh-utils 0.1.dev1+g96bf8fc documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+gbf474ba documentation</span>
+  <span class="sidebar-brand-text">cdp-gh-utils 0.1.dev1+g96bf8fc documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -259,14 +259,14 @@
         <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
             <span class="s2">&quot;--iter_days&quot;</span><span class="p">,</span>
             <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-            <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of days to backfill during each workflow run.&quot;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of days to backfill during each workflow run. Default: 3&quot;</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
             <span class="s2">&quot;--overlap_days&quot;</span><span class="p">,</span>
             <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
             <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of days to overlap each workflow run by.&quot;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of days to overlap each workflow run by. Default: 1&quot;</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
             <span class="s2">&quot;--token&quot;</span><span class="p">,</span>
@@ -280,19 +280,27 @@
             <span class="n">default</span><span class="o">=</span><span class="s2">&quot;event-gather-pipeline.yml&quot;</span><span class="p">,</span>
             <span class="n">help</span><span class="o">=</span><span class="p">(</span>
                 <span class="s2">&quot;The name of the workflow file which acts as the &quot;</span>
-                <span class="s2">&quot;event gather pipeline action definition.&quot;</span>
+                <span class="s2">&quot;event gather pipeline action definition. &quot;</span>
+                <span class="s2">&quot;Default: &#39;event-gather-pipeline.yml&#39;&quot;</span>
             <span class="p">),</span>
         <span class="p">)</span>
         <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
             <span class="s2">&quot;--ref&quot;</span><span class="p">,</span>
             <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
             <span class="n">default</span><span class="o">=</span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
-            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The branch or git ref name to trigger the workflow on.&quot;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+                <span class="s2">&quot;The branch or git ref name to trigger the workflow on. &quot;</span>
+                <span class="s2">&quot;Default: &#39;main&#39;&quot;</span>
+            <span class="p">),</span>
         <span class="p">)</span>
         <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
             <span class="s2">&quot;--ignore_errors&quot;</span><span class="p">,</span>
             <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
-            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Try to backfill all batches regardless of errors.&quot;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+                <span class="s2">&quot;Try to backfill all batches regardless of errors. &quot;</span>
+                <span class="s2">&quot;Note: The status of all workflow runs is stored to CSV &quot;</span>
+                <span class="s2">&quot;enabling later workflow re-running.&quot;</span>
+            <span class="p">),</span>
         <span class="p">)</span>
         <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
             <span class="s2">&quot;--debug&quot;</span><span class="p">,</span>
